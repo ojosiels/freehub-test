@@ -4,12 +4,10 @@ from .models import Usuario
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
-    # Validadores Extras
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=Usuario.objects.all())],
     )
 
-    # Sobrescrita de métodos "create" e "update"
     def create(self, validated_data: dict) -> Usuario:
         usuario = Usuario.objects.create_user(**validated_data)
         return usuario
@@ -23,7 +21,6 @@ class UsuarioSerializer(serializers.ModelSerializer):
         instance.save()
         return instance
 
-    # Declaração do Meta ModelSerializer
     class Meta:
         model = Usuario
         fields = [
@@ -32,12 +29,10 @@ class UsuarioSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            "is_superuser",
         ]
 
         read_only_fields = [
             "id",
-            "is_superuser",
         ]
 
         extra_kwargs = {
