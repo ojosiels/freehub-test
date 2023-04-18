@@ -1,18 +1,27 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
+from rest_framework.views import status
+
+from datetime import date
 
 from .models import Cliente
+from .exceptions import CustomException
+
 from usuarios.serializers import UsuarioSerializer
 
 
 class ClienteSerializer(serializers.ModelSerializer):
-    # Validadores Extras
     user = UsuarioSerializer(read_only=True)
     cpf = serializers.CharField(
         validators=[UniqueValidator(queryset=Cliente.objects.all())],
     )
 
-    # Sobrescrita de métodos "create" e "update"
+    def validate(self, attrs):
+        if bool(attrs["birth_date"] > date.today()):
+            raise CustomException("Data Invalida", code=status.HTTP_400_BAD_REQUEST)
+
+        return attrs
+
     def create(self, validated_data: dict) -> Cliente:
         cliente = Cliente.objects.create(**validated_data)
         return cliente
@@ -24,7 +33,6 @@ class ClienteSerializer(serializers.ModelSerializer):
 
         return instance
 
-    # Declaração do Meta ModelSerializer
     class Meta:
         model = Cliente
         fields = [
