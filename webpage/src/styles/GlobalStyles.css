@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap");
+
+:root {
+  --color-primary: #184e78;
+  --color-primary-focus: #186fb2;
+
+  --color-a: #d72222;
+  --color-b: #dab225;
+  --color-c: #18936e;
+
+  --grey-4: #121214;
+  --grey-3: #12121440;
+  --grey-2: #343b41;
+  --grey-1: #868e96;
+  --grey-0: #f8f9fa;
+}
+
+body {
+  height: 100dvh;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-primary);
+  background-image: linear-gradient(
+    var(--color-primary),
+    var(--color-primary-focus)
+  );
+  color: var(--grey-4);
+}
+
+/* Reset */
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+em,
+img,
+small,
+strong,
+ol,
+ul,
+li,
+fieldset,
+button,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+figcaption,
+footer,
+header,
+menu,
+nav,
+section,
+audio,
+video,
+input,
+select,
+option {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 5px;
+  font-size: 100%;
+  text-decoration: none;
+  display: block;
+  line-height: 1;
+  box-sizing: border-box;
+  list-style: none;
+  color: var(--grey-4);
+}
