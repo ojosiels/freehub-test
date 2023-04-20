@@ -1,0 +1,35 @@
+.baseForm {
+  width: 50vw;
+}
+
+@media (max-width: 1000px) {
+  .baseForm {
+    width: 90vw;
+  }
+}
+
+#redirectP {
+  color: var(--color-primary-focus);
+  cursor: pointer;
+}
+
+#goBackButton {
+  margin-right: auto;
+
+  cursor: pointer;
+
+  border-radius: 50px;
+  box-shadow: 0 0 4px 0 var(--grey-3);
+
+  background-color: var(--color-primary);
+  color: var(--grey-0);
+
+  padding: 15px 20px;
+
+  transition: 0.3s;
+}
+
+#goBackButton:hover {
+  background-color: var(--color-primary-focus);
+  color: var(--grey-0);
+}
