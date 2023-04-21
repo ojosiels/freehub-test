@@ -1,7 +1,12 @@
-import HomePage from "./pages/HomePage";
+import Routes from "./routes";
+import "./styles/GlobalStyles.css";
 
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <Routes />
+    </>
+  );
 };
 
 export default App;
