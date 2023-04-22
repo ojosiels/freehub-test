@@ -4,12 +4,11 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Usuario
 from .serializers import UsuarioSerializer
-from .permissions import ContaPertenceAoUsuario, EstaAutenticadoOuPost
+from .permissions import ContaPertenceAoUsuario
 
 
-class UsuarioView(generics.ListCreateAPIView):
+class UsuarioView(generics.CreateAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [EstaAutenticadoOuPost]
 
     queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
