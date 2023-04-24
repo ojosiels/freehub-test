@@ -1,0 +1,129 @@
+.clientReportSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-top: 30px;
+  padding: 0px 50px;
+}
+
+.clientReportHead {
+  display: flex;
+  justify-content: space-around;
+}
+
+.clientReportHead label,
+.clientReportHead > h2 {
+  color: var(--grey-0);
+}
+
+.clientReportHead > h2 {
+  font-size: 20px;
+}
+
+.clientReportHead > div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.clientReportHead select {
+  background-color: var(--grey-0);
+  color: var(--color-primary);
+
+  font-weight: 700;
+  padding: 5px 10px;
+}
+
+.clientReportBody {
+  display: flex;
+  justify-content: center;
+
+  gap: 30px;
+}
+
+.clientListSection h2 {
+  color: var(--grey-0);
+  font-size: 20px;
+}
+
+.coloredReportCard,
+.whiteReportCard {
+  width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 20px;
+
+  border: 1px var(--grey-0) solid;
+
+  box-shadow: 0 0 5px var(--grey-3);
+}
+
+.coloredReportCard > h3,
+.whiteReportCard > h3 {
+  font-weight: 300;
+}
+
+.coloredReportCard > p,
+.whiteReportCard > p {
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.whiteReportCard {
+  background-color: var(--grey-0);
+}
+
+.coloredReportCard {
+  background-color: var(--color-primary);
+}
+
+.coloredReportCard > h3,
+.coloredReportCard > p {
+  color: var(--grey-0);
+}
+
+.clientListSection {
+  margin: auto;
+  margin-top: 35px;
+  width: 90vw;
+}
+
+.seeMoreButton {
+  border: 2px transparent solid;
+  text-align: center;
+  font-weight: 600;
+  padding: 20px 20px;
+  width: 75vw;
+  margin: auto;
+  background-color: var(--grey-0);
+
+  transition: 0.2s;
+}
+
+.seeMoreButton:hover {
+  border-color: var(--grey-1);
+  background-color: var(--color-primary);
+  color: var(--grey-0);
+}
+
+@media (max-width: 800px) {
+  .clientReportSection {
+    margin: 30px auto;
+  }
+  .clientReportHead {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .clientReportBody {
+    flex-direction: column;
+  }
+
+  .coloredReportCard,
+  .whiteReportCard {
+    width: 70vw;
+  }
+}
