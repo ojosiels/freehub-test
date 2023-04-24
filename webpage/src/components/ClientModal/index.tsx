@@ -38,6 +38,7 @@ const ClientModal = ({
       .max(10, { message: "Apenas 10 digitos" }),
     family_income: z
       .string()
+      .min(0, { message: "A renda não pode ser um valor negativo" })
       .max(999999, { message: "Máximo de 150 caracteres" }),
     birth_date: z.string(),
   });
@@ -48,8 +49,13 @@ const ClientModal = ({
     formState: { errors },
   } = useForm<iClientRegisterData>({ resolver: zodResolver(formSchema) });
 
-  const submitData = (data: iClientRegisterData) => {
-    updateClient(data, client.id);
+  const submitData = async (data: iClientRegisterData) => {
+    try {
+      await updateClient(data, client.id);
+      setIsModalOn(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -71,6 +77,9 @@ const ClientModal = ({
               <input
                 id="nameInput"
                 type="text"
+                required
+                minLength={2}
+                maxLength={150}
                 defaultValue={client.name}
                 {...register("name")}
               />
@@ -82,6 +91,9 @@ const ClientModal = ({
               <input
                 id="cpfInput"
                 type="text"
+                required
+                minLength={10}
+                maxLength={10}
                 defaultValue={client.cpf}
                 {...register("cpf")}
               />
@@ -94,6 +106,9 @@ const ClientModal = ({
                 id="family_incomeInput"
                 type="number"
                 step={0.01}
+                required
+                min={0}
+                max={999999}
                 defaultValue={client.family_income}
                 {...register("family_income")}
               />
@@ -115,16 +130,7 @@ const ClientModal = ({
               />
             </div>
 
-            <button
-              type="submit"
-              onClick={() => {
-                setTimeout(() => {
-                  setIsEditOn(!isEditOn);
-                }, 300);
-              }}
-            >
-              Salvar
-            </button>
+            <button type="submit">Salvar</button>
           </form>
         ) : (
           <div className="clientInfo">
@@ -168,7 +174,7 @@ const ClientModal = ({
           </button>
           <button
             onClick={() => {
-              setIsModalOn(false);
+              setIsEditOn(!isEditOn);
             }}
             className="editButton"
           >

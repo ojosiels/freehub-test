@@ -29,8 +29,6 @@ const ListClientsPage = (): JSX.Element => {
   };
 
   useEffect(() => {
-    console.log(clientsResponseData);
-
     if (clientsResponseData.previous) {
       setPageLinkPrevious(clientsResponseData.previous);
       setIsPreviousButtonOn(true);

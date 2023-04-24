@@ -38,13 +38,26 @@ export const LoginUserForm = ({
 
         <div>
           <label htmlFor="usernameInput">Nome de Usuário:</label>
-          <input id="usernameInput" type="text" {...register("username")} />
+          <input
+            id="usernameInput"
+            type="text"
+            required
+            minLength={2}
+            maxLength={150}
+            {...register("username")}
+          />
           {errors.username ? <p>{errors.username.message}</p> : <br />}
         </div>
 
         <div>
           <label htmlFor="passwordInput">Senha:</label>
-          <input id="passwordInput" type="password" {...register("password")} />
+          <input
+            id="passwordInput"
+            type="password"
+            required
+            minLength={8}
+            {...register("password")}
+          />
           {errors.password ? <p>{errors.password.message}</p> : <br />}
         </div>
 
@@ -112,25 +125,51 @@ export const RegisterUserForm = ({
         <h2>Faça seu Cadastro</h2>
         <div>
           <label htmlFor="nameInput">Nome:</label>
-          <input id="nameInput" type="text" {...register("name")} />
+          <input
+            id="nameInput"
+            type="text"
+            required
+            minLength={2}
+            maxLength={150}
+            {...register("name")}
+          />
           {errors.name ? <p>{errors.name.message}</p> : <br />}
         </div>
 
         <div>
           <label htmlFor="emailInput">Email:</label>
-          <input id="emailInput" type="text" {...register("email")} />
+          <input
+            id="emailInput"
+            type="text"
+            required
+            maxLength={50}
+            {...register("email")}
+          />
           {errors.email ? <p>{errors.email.message}</p> : <br />}
         </div>
 
         <div>
           <label htmlFor="usernameInput">Nome de Usuário:</label>
-          <input id="usernameInput" type="text" {...register("username")} />
+          <input
+            id="usernameInput"
+            type="text"
+            required
+            minLength={2}
+            maxLength={150}
+            {...register("username")}
+          />
           {errors.username ? <p>{errors.username.message}</p> : <br />}
         </div>
 
         <div>
           <label htmlFor="passwordInput">Senha:</label>
-          <input id="passwordInput" type="password" {...register("password")} />
+          <input
+            id="passwordInput"
+            type="password"
+            required
+            minLength={8}
+            {...register("password")}
+          />
           {errors.password ? <p>{errors.password.message}</p> : <br />}
         </div>
 
@@ -139,6 +178,8 @@ export const RegisterUserForm = ({
           <input
             id="confirmPasswordInput"
             type="password"
+            required
+            minLength={8}
             {...register("confirmPassword")}
           />
           {errors.confirmPassword ? (
@@ -151,14 +192,7 @@ export const RegisterUserForm = ({
         <button type="submit">Cadastrar</button>
 
         <p className="auxTextP">já possui uma conta?</p>
-        <p
-          id="redirectP"
-          onClick={() => {
-            setIsLoginFormOn(true);
-          }}
-        >
-          faça login
-        </p>
+        <p id="redirectP">faça login</p>
       </form>
     </>
   );

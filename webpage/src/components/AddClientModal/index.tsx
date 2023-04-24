@@ -34,6 +34,7 @@ const AddClientModal = ({
       .max(10, { message: "Apenas 10 digitos" }),
     family_income: z
       .string()
+      .min(0, { message: "A renda não pode ser um valor negativo" })
       .max(999999, { message: "Máximo de 150 caracteres" }),
     birth_date: z.string(),
   });
@@ -44,11 +45,15 @@ const AddClientModal = ({
     formState: { errors },
   } = useForm<iClientRegisterData>({ resolver: zodResolver(formSchema) });
 
-  const submitData = (data: iClientRegisterData) => {
-    registerClient(data);
-    setTimeout(() => {
-      setIsModalOn(false);
-    }, 300);
+  const submitData = async (data: iClientRegisterData) => {
+    try {
+      await registerClient(data);
+      setTimeout(() => {
+        setIsModalOn(false);
+      }, 300);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -66,13 +71,27 @@ const AddClientModal = ({
         <form onSubmit={handleSubmit(submitData)} className="clientForm">
           <div>
             <label htmlFor="nameInput">Nome:</label>
-            <input id="nameInput" type="text" {...register("name")} />
+            <input
+              required
+              minLength={2}
+              maxLength={150}
+              id="nameInput"
+              type="text"
+              {...register("name")}
+            />
             {errors.name ? <p>{errors.name.message}</p> : <br />}
           </div>
 
           <div>
             <label htmlFor="cpfInput">CPF:</label>
-            <input id="cpfInput" type="text" {...register("cpf")} />
+            <input
+              required
+              minLength={10}
+              maxLength={10}
+              id="cpfInput"
+              type="text"
+              {...register("cpf")}
+            />
             {errors.cpf ? <p>{errors.cpf.message}</p> : <br />}
           </div>
 
@@ -81,6 +100,9 @@ const AddClientModal = ({
             <input
               id="family_incomeInput"
               type="number"
+              required
+              min={0}
+              max={999999}
               step={0.01}
               {...register("family_income")}
             />
@@ -96,6 +118,7 @@ const AddClientModal = ({
             <input
               id="birth_dateInput"
               type="date"
+              required
               max={today}
               {...register("birth_date")}
             />
