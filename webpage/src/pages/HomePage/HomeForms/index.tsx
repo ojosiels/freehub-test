@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext } from "react";
 
 import { z, ZodType } from "zod";
 import { useForm } from "react-hook-form";
@@ -7,13 +7,17 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import "../../../styles/BaseFormStyle.css";
 import "./style.css";
 
-import { iUserLoginData, iUserRegisterData } from "../../../interfaces";
+import { iUserLoginData, iUserRegisterData } from "../../../interfaces/user.ts";
+import { UserContext } from "../../../contexts/UserContext.tsx";
 
 interface iUserFormProps {
   setIsLoginFormOn: Dispatch<SetStateAction<boolean>>;
 }
 
-export const LoginUserForm = ({ setIsLoginFormOn }: iUserFormProps) => {
+export const LoginUserForm = ({
+  setIsLoginFormOn,
+}: iUserFormProps): JSX.Element => {
+  const { loginUser } = useContext(UserContext);
   const formSchema: ZodType<iUserLoginData> = z.object({
     username: z
       .string()
@@ -27,12 +31,9 @@ export const LoginUserForm = ({ setIsLoginFormOn }: iUserFormProps) => {
     formState: { errors },
   } = useForm<iUserLoginData>({ resolver: zodResolver(formSchema) });
 
-  const submitData = (data: iUserLoginData) => {
-    console.log(data);
-  };
   return (
     <>
-      <form onSubmit={handleSubmit(submitData)} className="baseForm">
+      <form onSubmit={handleSubmit(loginUser)} className="baseForm">
         <h2>Login</h2>
 
         <div>
@@ -63,7 +64,11 @@ export const LoginUserForm = ({ setIsLoginFormOn }: iUserFormProps) => {
   );
 };
 
-export const RegisterUserForm = ({ setIsLoginFormOn }: iUserFormProps) => {
+export const RegisterUserForm = ({
+  setIsLoginFormOn,
+}: iUserFormProps): JSX.Element => {
+  const { registerUser } = useContext(UserContext);
+
   const formSchema: ZodType<iUserRegisterData> = z
     .object({
       name: z
@@ -92,12 +97,9 @@ export const RegisterUserForm = ({ setIsLoginFormOn }: iUserFormProps) => {
     formState: { errors },
   } = useForm<iUserRegisterData>({ resolver: zodResolver(formSchema) });
 
-  const submitData = (data: iUserRegisterData) => {
-    console.log(data);
-  };
   return (
     <>
-      <form onSubmit={handleSubmit(submitData)} className="baseForm">
+      <form onSubmit={handleSubmit(registerUser)} className="baseForm">
         <p
           onClick={() => {
             setIsLoginFormOn(true);

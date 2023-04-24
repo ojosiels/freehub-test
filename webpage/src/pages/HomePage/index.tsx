@@ -2,8 +2,9 @@ import { useState } from "react";
 import { LoginUserForm, RegisterUserForm } from "./HomeForms";
 
 import "./style.css";
+
 const HomePage = () => {
-  const [isLoginFormOn, setIsLoginFormOn] = useState<boolean>(false);
+  const [isLoginFormOn, setIsLoginFormOn] = useState<boolean>(true);
 
   return (
     <div className="homePageContainer">

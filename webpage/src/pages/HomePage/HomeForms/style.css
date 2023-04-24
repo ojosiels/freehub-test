@@ -2,12 +2,6 @@
   width: 50vw;
 }
 
-@media (max-width: 1000px) {
-  .baseForm {
-    width: 90vw;
-  }
-}
-
 #redirectP {
   color: var(--color-primary-focus);
   cursor: pointer;
@@ -32,4 +26,10 @@
 #goBackButton:hover {
   background-color: var(--color-primary-focus);
   color: var(--grey-0);
+}
+
+@media (max-width: 1000px) {
+  .baseForm {
+    width: 90vw;
+  }
 }
