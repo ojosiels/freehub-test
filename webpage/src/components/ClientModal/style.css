@@ -1,0 +1,136 @@
+.modalContainer {
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 103;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, 0.371);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+
+  background-color: var(--grey-0);
+
+  border-radius: 15px;
+  padding: 30px 40px 35px;
+}
+
+.closeButton {
+  margin-left: auto;
+  background-color: transparent;
+  font-size: 20px;
+}
+.closeButton:hover {
+  color: var(--color-primary);
+}
+
+.clientForm,
+.clientInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.clientForm div {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.clientForm input {
+  width: 100%;
+  height: 35px;
+
+  border: 1px var(--grey-4) solid;
+  border-radius: 5px;
+  box-shadow: 0 0 4px var(--grey-3);
+
+  padding: 0 15px;
+}
+
+.clientForm button {
+  height: 45px;
+  width: 100%;
+
+  border-radius: 50px;
+  box-shadow: 0 0 4px 1px var(--grey-3);
+
+  background-color: var(--color-primary);
+  color: var(--grey-0);
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.clientForm button:hover {
+  background-color: var(--color-primary-focus);
+  color: var(--grey-0);
+}
+
+.clientForm p {
+  color: var(--color-a);
+}
+
+.clientInfo strong {
+  display: inline;
+}
+.clientInfo p {
+  display: inline;
+  width: 100%;
+}
+
+.buttonsDiv {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsDiv button {
+  color: var(--grey-0);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  border: 1px transparent solid;
+  border-radius: 14px;
+  padding: 10px;
+
+  transition: 0.2s;
+}
+
+.deleteButton {
+  background-color: var(--color-a);
+}
+
+.deleteButton:hover {
+  background-color: var(--grey-0);
+  color: var(--color-a);
+  border-color: var(--color-a);
+}
+
+.editButton {
+  background-color: var(--color-primary);
+}
+
+.editButton:hover {
+  background-color: var(--grey-0);
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
