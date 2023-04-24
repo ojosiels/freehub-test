@@ -1,0 +1,42 @@
+.loader {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--color-primary);
+  height: 100vh;
+}
+
+.loader h1 {
+  color: white;
+  font-size: 3em;
+}
+
+.loader span {
+  color: white;
+  font-size: 3em;
+}
+
+.bullets {
+  animation: dots 2s steps(3, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    color: rgba(0, 0, 0, 0);
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  40% {
+    color: white;
+    text-shadow: 0.25em 0 0 rgba(0, 0, 0, 0), 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  60% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 rgba(0, 0, 0, 0);
+  }
+  80%,
+  100% {
+    text-shadow: 0.25em 0 0 white, 0.5em 0 0 white;
+  }
+}
