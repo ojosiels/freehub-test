@@ -17,13 +17,13 @@ Aplicação desenvolvida no prazo de uma semana como teste técnico para empresa
 
 - Execute o comando `python venv venv` para criar um ambiente virtual,
 
-- Com o ambiente virtual criado, execute o comando `.\venv\Scripts\activate` para irá ativar o ambiente virtual
+- Com o ambiente virtual criado, execute o comando `.\venv\Scripts\activate` para ativar o ambiente virtual
 
-- Com o ambiente virtual ativo execute o comando `python -m pip install -r requirements.txt`
+- Com o ambiente virtual ativo execute o comando `python -m pip install -r requirements.txt` para instalar os pacotes do projeto
 
 - Com todos os pacotes já instalados execute o comando `python manage.py migrate`, isso vai criar o banco de dados
 
-- Com o banco de dados já criado execute o comando `python manage.py runserver`
+- Com o banco de dados já criado execute o comando `python manage.py runserver` para rodar o servidor
 
 - Após isso o servidor já deve estar rodando em ambiente de desenvolvimento na porta `http://localhost:8000`
 
