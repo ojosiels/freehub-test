@@ -15,7 +15,7 @@ Aplicação desenvolvida no prazo de uma semana como teste técnico para empresa
 
 - Abra o terminal na pasta _api_
 
-- Execute o comando `python venv venv` para criar um ambiente virtual,
+- Execute o comando `python -m venv venv` para criar um ambiente virtual,
 
 - Com o ambiente virtual criado, execute o comando `.\venv\Scripts\activate` para ativar o ambiente virtual
 
