@@ -4,16 +4,16 @@ from rest_framework.views import status
 
 from datetime import date
 
-from .models import Cliente
+from .models import Client
 from .exceptions import CustomException
 
-from usuarios.serializers import UsuarioSerializer
+from users.serializers import UserSerializer
 
 
-class ClienteSerializer(serializers.ModelSerializer):
-    user = UsuarioSerializer(read_only=True)
+class ClientSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     cpf = serializers.CharField(
-        validators=[UniqueValidator(queryset=Cliente.objects.all())],
+        validators=[UniqueValidator(queryset=Client.objects.all())],
     )
 
     def validate(self, attrs):
@@ -22,11 +22,11 @@ class ClienteSerializer(serializers.ModelSerializer):
 
         return attrs
 
-    def create(self, validated_data: dict) -> Cliente:
-        cliente = Cliente.objects.create(**validated_data)
-        return cliente
+    def create(self, validated_data: dict) -> Client:
+        client = Client.objects.create(**validated_data)
+        return client
 
-    def update(self, instance: Cliente, validated_data: dict) -> Cliente:
+    def update(self, instance: Client, validated_data: dict) -> Client:
         for key, value in validated_data.items():
             setattr(instance, key, value)
         instance.save()
@@ -34,7 +34,7 @@ class ClienteSerializer(serializers.ModelSerializer):
         return instance
 
     class Meta:
-        model = Cliente
+        model = Client
         fields = [
             "id",
             "name",

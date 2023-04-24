@@ -14,17 +14,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
-
 from django.core.management.utils import get_random_secret_key
-import os
-import dotenv
-
-dotenv.load_dotenv()
-
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.getenv("SECRET_KEY", get_random_secret_key())
+SECRET_KEY =  get_random_secret_key()
 
 DEBUG = True
 
@@ -41,16 +35,16 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = [
-    "rest_framework",
-]
+THIRD_PARTY_APPS = ["rest_framework", "corsheaders"]
 
-MY_APPS = ["usuarios", "clientes"]
+MY_APPS = ["users", "clients"]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + MY_APPS
 
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -128,7 +122,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "static/"
 
@@ -137,4 +130,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
 # Model de Usuário Padrão
-AUTH_USER_MODEL = "usuarios.Usuario"
+AUTH_USER_MODEL = "users.User"
+
+# Configuração de Cors
+CORS_ORIGIN_ALLOW_ALL = DEBUG

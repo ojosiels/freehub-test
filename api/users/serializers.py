@@ -1,18 +1,18 @@
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
-from .models import Usuario
+from .models import User
 
 
-class UsuarioSerializer(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(
-        validators=[UniqueValidator(queryset=Usuario.objects.all())],
+        validators=[UniqueValidator(queryset=User.objects.all())],
     )
 
-    def create(self, validated_data: dict) -> Usuario:
-        usuario = Usuario.objects.create_user(**validated_data)
-        return usuario
+    def create(self, validated_data: dict) -> User:
+        user = User.objects.create_user(**validated_data)
+        return user
 
-    def update(self, instance: Usuario, validated_data: dict) -> Usuario:
+    def update(self, instance: User, validated_data: dict) -> User:
         for key, value in validated_data.items():
             setattr(instance, key, value)
             if key == "password":
@@ -22,7 +22,7 @@ class UsuarioSerializer(serializers.ModelSerializer):
         return instance
 
     class Meta:
-        model = Usuario
+        model = User
         fields = [
             "id",
             "name",
