@@ -1,0 +1,95 @@
+.clientListUl {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto;
+  width: 90vw;
+
+  padding: 15px 30px;
+}
+
+.clientCardLi {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+
+  cursor: pointer;
+
+  background-color: var(--grey-0);
+  transition: 0.3s;
+}
+
+.clientCardLi:hover {
+  transform: scale(1.05, 1.05);
+}
+
+.clientCardLi p {
+  color: var(--grey-0);
+  font-weight: 600;
+
+  padding: 10px;
+}
+
+.clientClassC {
+  background-color: var(--color-c);
+}
+.clientClassB {
+  background-color: var(--color-b);
+}
+
+.clientClassA {
+  background-color: var(--color-a);
+}
+
+.addClientButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+
+  border: 2px transparent solid;
+  border-radius: 14px;
+
+  padding: 5px 10px;
+  font-size: 25px;
+
+  background-color: var(--grey-0);
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+.addClientButton:hover {
+  border-color: var(--grey-0);
+  background-color: var(--color-primary);
+  color: var(--grey-0);
+}
+
+.clientNotFound {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.clientNotFound h1 {
+  font-size: 40px;
+  color: var(--grey-0);
+}
+
+.clientNotFound button {
+  border: 2px transparent solid;
+  border-radius: 14px;
+
+  padding: 10px 15px;
+  font-size: 25px;
+
+  background-color: var(--grey-0);
+  color: var(--color-primary);
+  transition: 0.3s;
+}
+
+.clientNotFound button:hover {
+  border-color: var(--grey-0);
+  background-color: var(--color-primary);
+  color: var(--grey-0);
+}
