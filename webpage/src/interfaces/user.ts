@@ -1,3 +1,10 @@
+export interface iUserData {
+  id: number;
+  name: string;
+  email: string;
+  username: string;
+}
+
 export interface iUserRegisterData {
   name: string;
   email: string;
@@ -9,11 +16,4 @@ export interface iUserRegisterData {
 export interface iUserLoginData {
   username: string;
   password: string;
-}
-
-export interface iClientFormData {
-  name: string;
-  cpf: string;
-  family_income: string;
-  birth_date: string;
 }
