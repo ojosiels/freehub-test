@@ -1,6 +1,6 @@
 # **Teste Técnico Empresa Freehub**
 
-Aplicação desenvolvida no prazo de uma semana como teste técnico da empresa Freehub
+Aplicação desenvolvida no prazo de uma semana como teste técnico para empresa Freehub
 
 ### Indice
 
