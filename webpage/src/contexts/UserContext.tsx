@@ -61,7 +61,7 @@ export const UserProvider = ({ children }: iUserProviderProps): JSX.Element => {
       setLoading(false);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.message);
+        toastError(error.response?.data.detail);
       }
     }
   };
@@ -72,7 +72,8 @@ export const UserProvider = ({ children }: iUserProviderProps): JSX.Element => {
       toastSuccess("Cadastro Realizado Com Sucesso");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError(error.response?.data.username[0]);
+        toastError(error.response?.data.email[0]);
       }
     }
   };

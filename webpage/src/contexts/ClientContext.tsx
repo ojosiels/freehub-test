@@ -18,7 +18,10 @@ interface iClientProviderProps {
 interface iClientContext {
   registerClient: (data: iClientRegisterData) => Promise<void>;
   deleteClient: (clientId: number) => Promise<void>;
-  updateClient: (data: iClientRegisterData, clientId: number) => Promise<void>;
+  updateClient: (
+    data: iClientRegisterData,
+    clientId: number
+  ) => Promise<iClientData>;
   searchClientByName: (clientName: string) => Promise<void>;
   searchClientByFamilyIncome: (family_income: string) => Promise<void>;
   changeClientPage: (link: string) => Promise<void>;
@@ -48,7 +51,8 @@ export const ClientProvider = ({
       return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError("CPF: " + error.response?.data.cpf[0]);
+        toastError("Data de Nascimento: " + error.response?.data.birth_date[0]);
       }
     }
   };
@@ -69,7 +73,7 @@ export const ClientProvider = ({
       toastSuccess("Cliente Excluido com Sucesso");
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError(error.response?.data.detail);
       }
     }
   };
@@ -81,27 +85,25 @@ export const ClientProvider = ({
 
       let clientIndex = 0;
 
-      clientsResponseData.results.map((elem, index) => {
+      clientsResponseData.results.forEach((elem, index) => {
         if (elem.id == res.data.id) {
           clientIndex = index;
         }
       });
 
-      const newResults = clientsResponseData.results.splice(
-        clientIndex,
-        1,
-        res.data
-      );
+      clientsResponseData.results.splice(clientIndex, 1, res.data);
 
       const newClientsResponseData: iClientResponseData = {
         ...clientsResponseData,
-        results: newResults,
+        results: clientsResponseData.results,
       };
 
       setClientsResponseData(newClientsResponseData);
+      return res.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError("CPF: " + error.response?.data.cpf[0]);
+        toastError("Data de Nascimento: " + error.response?.data.birth_date[0]);
       }
     }
   };
@@ -113,7 +115,7 @@ export const ClientProvider = ({
       setClientsResponseData(res.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError(error.response?.data.detail);
       }
     }
   };
@@ -125,7 +127,7 @@ export const ClientProvider = ({
       setClientsResponseData(res.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError(error.response?.data.detail);
       }
     }
   };
@@ -137,7 +139,7 @@ export const ClientProvider = ({
       setClientsResponseData(res.data);
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        toastError(error.response?.data.message);
+        toastError(error.response?.data.detail);
       }
     }
   };
