@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap");
+
 /* Reset */
 html,
 body,
@@ -58,8 +60,6 @@ option {
 
 /* Global Styles */
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600;700&display=swap");
-
 :root {
   --color-primary: #184e78;
   --color-primary-focus: #186fb2;
@@ -76,13 +76,8 @@ option {
 }
 
 body {
-  height: 100dvh;
   font-family: "Roboto", sans-serif;
   background-color: var(--color-primary);
-  background-image: linear-gradient(
-    var(--color-primary),
-    var(--color-primary-focus)
-  );
   color: var(--grey-4);
 }
 
