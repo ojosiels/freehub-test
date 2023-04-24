@@ -99,6 +99,8 @@
   padding: 20px 20px;
   width: 75vw;
   margin: auto;
+  margin-top: 20px;
+
   background-color: var(--grey-0);
 
   transition: 0.2s;

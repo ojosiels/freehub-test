@@ -22,16 +22,27 @@ const ClientList = ({ clients, limiter }: iClientListProps): JSX.Element => {
 
   if (clients.length == 0) {
     return (
-      <div className="clientNotFound">
-        <h1>Cliente não encontrados</h1>
-        <button
-          onClick={() => {
-            searchClientByName("");
-          }}
-        >
-          Listar Todos
-        </button>
-      </div>
+      <>
+        {addModalSwitch && <AddClientModal setIsModalOn={setAddModalSwich} />}
+        <div className="clientNotFound">
+          <button
+            className="addClientButton"
+            onClick={() => {
+              setAddModalSwich(true);
+            }}
+          >
+            <IoMdAdd />
+          </button>
+          <h1>Cliente não encontrados</h1>
+          <button
+            onClick={() => {
+              searchClientByName("");
+            }}
+          >
+            Listar Todos
+          </button>
+        </div>
+      </>
     );
   }
 
