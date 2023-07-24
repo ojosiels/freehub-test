@@ -1,39 +1,41 @@
-# **Teste Técnico Empresa Freehub**
+# **Freehub Company Technical Test**
 
-Aplicação desenvolvida no prazo de uma semana como teste técnico para empresa Freehub
+Application developed within a one-week deadline as a technical test for Freehub company.
 
-### Indice
+### Table of Contents
 
-- [Como rodar a Api](#runApi)
-- [Como rodar a Página da Web](#runWebPage)
-- [Documentação da Api](https://tasty-catboat-531.notion.site/Teste-T-cnico-Api-Doc-93c7ae41230640f6a3de4c6b99991c53)
-- [Figma do Projeto](https://www.figma.com/file/rHmELuAQr78AsiilJWZ2UN/Teste-T%C3%A9cnico-Freehub?node-id=0%3A1&t=uVPZ2nlobktZGb7F-1)
+- [How to Run the API](#runApi)
+- [How to Run the Web Page](#runWebPage)
+- [API Documentation](https://tasty-catboat-531.notion.site/Teste-T-cnico-Api-Doc-93c7ae41230640f6a3de4c6b99991c53)
+- [Project's Design](https://www.figma.com/file/rHmELuAQr78AsiilJWZ2UN/Teste-T%C3%A9cnico-Freehub?node-id=0%3A1&t=uVPZ2nlobktZGb7F-1)
 
-<h2 id="runApi">Como rodar a Api</h2>
+<h2 id="runApi">How to run the API</h2>
 
-**Atenção: para rodar a api é necessário ter a versão mais recente do python instalado [link do download na página oficial](https://www.python.org/downloads/)**
+**Warning: To run the API you need to have latest python's latest version installed [python's official download link](https://www.python.org/downloads/)**
 
-- Abra o terminal na pasta _api_
+- Open the terminal in the _api_ folder.
 
-- Execute o comando `python -m venv venv` para criar um ambiente virtual,
+- Execute the command `python -m venv venv` to create a virtual environment.
 
-- Com o ambiente virtual criado, execute o comando `.\venv\Scripts\activate` para ativar o ambiente virtual
+- With the virtual environment created, execute the command `.\venv\Scripts\activate` to activate the virtual environment.
 
-- Com o ambiente virtual ativo execute o comando `python -m pip install -r requirements.txt` para instalar os pacotes do projeto
+- With the virtual environment active, execute the command `python -m pip install -r requirements.txt` to install the project's packages.
 
-- Com todos os pacotes já instalados execute o comando `python manage.py migrate`, isso vai criar o banco de dados
+- With all the packages installed, execute the command `python manage.py migrate`. This will create the database.
 
-- Com o banco de dados já criado execute o comando `python manage.py runserver` para rodar o servidor
+- With the database created, execute the command `python manage.py runserver` to run the server.
 
-- Após isso o servidor já deve estar rodando em ambiente de desenvolvimento na porta `http://localhost:8000`
+- After that, the server should be running in development at `http://localhost:8000`.
 
 <br/>
-<h2 id="runWebPage">Como rodar a Página da Web</h2>
+<h2 id="runWebPage">How to run the Web Page</h2>
 
-- Abra o terminal na pasta "webpage"
+**Warning: To run the WebPage you need to have yarn installed [yarn's official download link](https://classic.yarnpkg.com/lang/en/docs/install)**
 
-- execute o comando `yarn` para instalar as depêndencias do projeto
+- Open the terminal in the "webpage" folder.
 
-- Com as dependências já instaladas execute o comando `yarn dev`
+- Execute the command `yarn` to install the project's dependencies.
 
-- Após isso a página na vai estar rodando na porta `http://localhost:5172`
+- With the dependencies installed, execute the command `yarn dev`.
+
+- After that, the page will be running at `http://localhost:5172`.
