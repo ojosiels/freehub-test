@@ -21,9 +21,9 @@ export const LoginUserForm = ({
   const formSchema: ZodType<iUserLoginData> = z.object({
     username: z
       .string()
-      .min(2, { message: "Minimo de 2 caracteres" })
-      .max(150, { message: "Máximo de 150 caracteres" }),
-    password: z.string().min(8, { message: "Minimo de 8 caracteres" }),
+      .min(2, { message: "Minimum 2 characters" })
+      .max(150, { message: "Maximum 150 characters" }),
+    password: z.string().min(8, { message: "Minimum 8 characters" }),
   });
   const {
     register,
@@ -37,7 +37,7 @@ export const LoginUserForm = ({
         <h2>Login</h2>
 
         <div>
-          <label htmlFor="usernameInput">Nome de Usuário:</label>
+          <label htmlFor="usernameInput">Username:</label>
           <input
             id="usernameInput"
             type="text"
@@ -50,7 +50,7 @@ export const LoginUserForm = ({
         </div>
 
         <div>
-          <label htmlFor="passwordInput">Senha:</label>
+          <label htmlFor="passwordInput">Password:</label>
           <input
             id="passwordInput"
             type="password"
@@ -61,16 +61,16 @@ export const LoginUserForm = ({
           {errors.password ? <p>{errors.password.message}</p> : <br />}
         </div>
 
-        <button type="submit">Entrar</button>
+        <button type="submit">Login</button>
 
-        <p className="auxTextP">ainda não possui uma conta?</p>
+        <p className="auxTextP">don't have an account yet?</p>
         <p
           id="redirectP"
           onClick={() => {
             setIsLoginFormOn(false);
           }}
         >
-          faça seu cadastro
+          register
         </p>
       </form>
     </>
@@ -86,21 +86,21 @@ export const RegisterUserForm = ({
     .object({
       name: z
         .string()
-        .min(2, { message: "Minimo de 2 caracteres" })
-        .max(150, { message: "Máximo de 150 caracteres" }),
+        .min(2, { message: "Minimum 2 characters" })
+        .max(150, { message: "Maximum 150 characters" }),
       email: z
         .string()
-        .email({ message: "Email inválido" })
-        .max(50, { message: "Máximo de 50 caracteres" }),
+        .email({ message: "Invalid Email" })
+        .max(50, { message: "Maximum 50 characters" }),
       username: z
         .string()
-        .min(2, { message: "Minimo de 2 caracteres" })
-        .max(150, { message: "Máximo de 150 caracteres" }),
-      password: z.string().min(8, { message: "Minimo de 8 caracteres" }),
-      confirmPassword: z.string().min(8, { message: "Minimo de 8 caracteres" }),
+        .min(2, { message: "Minimum 2 characters" })
+        .max(150, { message: "Maximum 150 characters" }),
+      password: z.string().min(8, { message: "Minimum 8 characters" }),
+      confirmPassword: z.string().min(8, { message: "Minimum 8 characters" }),
     })
     .refine((data) => data.password == data.confirmPassword, {
-      message: "As senhas não conferem",
+      message: "Passwords don't match",
       path: ["confirmPassword"],
     });
 
@@ -119,12 +119,12 @@ export const RegisterUserForm = ({
           }}
           id="goBackButton"
         >
-          Voltar
+          Go Back
         </p>
 
-        <h2>Faça seu Cadastro</h2>
+        <h2>Register</h2>
         <div>
-          <label htmlFor="nameInput">Nome:</label>
+          <label htmlFor="nameInput">Name:</label>
           <input
             id="nameInput"
             type="text"
@@ -149,7 +149,7 @@ export const RegisterUserForm = ({
         </div>
 
         <div>
-          <label htmlFor="usernameInput">Nome de Usuário:</label>
+          <label htmlFor="usernameInput">Username:</label>
           <input
             id="usernameInput"
             type="text"
@@ -162,7 +162,7 @@ export const RegisterUserForm = ({
         </div>
 
         <div>
-          <label htmlFor="passwordInput">Senha:</label>
+          <label htmlFor="passwordInput">Password:</label>
           <input
             id="passwordInput"
             type="password"
@@ -174,7 +174,7 @@ export const RegisterUserForm = ({
         </div>
 
         <div>
-          <label htmlFor="confirmPasswordInput">Confirmar Senha:</label>
+          <label htmlFor="confirmPasswordInput">Confirma Password:</label>
           <input
             id="confirmPasswordInput"
             type="password"
@@ -189,10 +189,10 @@ export const RegisterUserForm = ({
           )}
         </div>
 
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Register</button>
 
-        <p className="auxTextP">já possui uma conta?</p>
-        <p id="redirectP">faça login</p>
+        <p className="auxTextP">already have an account?</p>
+        <p id="redirectP">login</p>
       </form>
     </>
   );

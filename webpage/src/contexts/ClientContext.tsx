@@ -39,7 +39,7 @@ export const ClientProvider = ({
   const registerClient = async (data: iClientRegisterData) => {
     try {
       const res = await api.post("/clients/", data);
-      toastSuccess("Cliente Cadastrado com Sucesso");
+      toastSuccess("Client Registered Successfully");
 
       const newClientsResponseData: iClientResponseData = {
         ...clientsResponseData,
@@ -52,7 +52,7 @@ export const ClientProvider = ({
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toastError("CPF: " + error.response?.data.cpf[0]);
-        toastError("Data de Nascimento: " + error.response?.data.birth_date[0]);
+        toastError("Birth Day: " + error.response?.data.birth_date[0]);
       }
     }
   };
@@ -70,7 +70,7 @@ export const ClientProvider = ({
         results: newClientsResponseData,
       });
 
-      toastSuccess("Cliente Excluido com Sucesso");
+      toastSuccess("Client Deleted Successfully");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toastError(error.response?.data.detail);
@@ -81,7 +81,7 @@ export const ClientProvider = ({
   const updateClient = async (data: iClientRegisterData, clientId: number) => {
     try {
       const res = await api.patch(`/clients/${clientId}/`, data);
-      toastSuccess("Cliente Editado com Sucesso");
+      toastSuccess("Client Edited Successfully");
 
       let clientIndex = 0;
 
@@ -103,7 +103,7 @@ export const ClientProvider = ({
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toastError("CPF: " + error.response?.data.cpf[0]);
-        toastError("Data de Nascimento: " + error.response?.data.birth_date[0]);
+        toastError("Birth Date: " + error.response?.data.birth_date[0]);
       }
     }
   };

@@ -33,13 +33,13 @@ const ClientList = ({ clients, limiter }: iClientListProps): JSX.Element => {
           >
             <IoMdAdd />
           </button>
-          <h1>Cliente não encontrados</h1>
+          <h1>Clients not found</h1>
           <button
             onClick={() => {
               searchClientByName("");
             }}
           >
-            Listar Todos
+            List all
           </button>
         </div>
       </>

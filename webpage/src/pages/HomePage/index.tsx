@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return (
     <div className="homePageContainer">
-      <h1>A Empresa</h1>
+      <h1>The Company</h1>
       {isLoginFormOn ? (
         <LoginUserForm setIsLoginFormOn={setIsLoginFormOn} />
       ) : (

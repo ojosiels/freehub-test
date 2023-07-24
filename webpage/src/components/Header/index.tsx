@@ -48,7 +48,7 @@ const Header = (): JSX.Element => {
         >
           <input
             type="text"
-            placeholder="pesquise por clientes pelo nome ou renda..."
+            placeholder="search by client or income..."
             minLength={2}
             maxLength={150}
             onChange={(event) => {

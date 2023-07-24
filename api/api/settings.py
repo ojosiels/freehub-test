@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-LANGUAGE_CODE = "pt-BR"
+LANGUAGE_CODE = "en-US"
 
 TIME_ZONE = "America/Sao_Paulo"
 

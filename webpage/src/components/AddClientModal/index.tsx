@@ -70,7 +70,7 @@ const AddClientModal = ({
 
         <form onSubmit={handleSubmit(submitData)} className="clientForm">
           <div>
-            <label htmlFor="nameInput">Nome:</label>
+            <label htmlFor="nameInput">Name:</label>
             <input
               required
               minLength={2}

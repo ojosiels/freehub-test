@@ -28,50 +28,50 @@ const MainPage = (): JSX.Element => {
 
       <section className="clientReportSection">
         <section className="clientReportHead">
-          <h2>Relatório dos Clientes</h2>
+          <h2>Clients' Report</h2>
 
           <div>
-            <label htmlFor="timeSelect">Intervalo de tempo:</label>
+            <label htmlFor="timeSelect">Time interval:</label>
             <select
               onChange={(event) => {
                 setTimeInterval(event.target.value as timeInterval);
               }}
               id="timeSelect"
             >
-              <option value="month">Mês</option>
-              <option value="week">Semana</option>
-              <option value="today">Dia</option>
+              <option value="month">Month</option>
+              <option value="week">Week</option>
+              <option value="today">Today</option>
             </select>
           </div>
         </section>
 
         <section className="clientReportBody">
           <section className="whiteReportCard">
-            <h3>Acima da Média</h3>
+            <h3>Above average</h3>
             <p>{clientReport[timeInterval].high_income_clients}</p>
           </section>
           <section className="coloredReportCard">
-            <h3>Classe A</h3>
+            <h3>Class A</h3>
             <p>{clientReport[timeInterval].a_clients}</p>
           </section>
           <section className="coloredReportCard">
-            <h3>Classe B</h3>
+            <h3>Class B</h3>
             <p>{clientReport[timeInterval].b_clients}</p>
           </section>
           <section className="coloredReportCard">
-            <h3>Classe C</h3>
+            <h3>Class C</h3>
             <p>{clientReport[timeInterval].c_clients}</p>
           </section>
         </section>
       </section>
 
       <section className="clientListSection">
-        <h2>Clientes</h2>
+        <h2>Clients</h2>
 
         <ClientList clients={clientsResponseData.results} limiter={6} />
 
         <Link to={"/clients"} className="seeMoreButton">
-          Ver Mais
+          See more
         </Link>
       </section>
     </>

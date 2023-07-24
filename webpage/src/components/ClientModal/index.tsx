@@ -73,7 +73,7 @@ const ClientModal = ({
         {isEditOn ? (
           <form onSubmit={handleSubmit(submitData)} className="clientForm">
             <div>
-              <label htmlFor="nameInput">Nome:</label>
+              <label htmlFor="nameInput">Name:</label>
               <input
                 id="nameInput"
                 type="text"

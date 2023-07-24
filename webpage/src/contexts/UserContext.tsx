@@ -55,7 +55,7 @@ export const UserProvider = ({ children }: iUserProviderProps): JSX.Element => {
       const getClientReport = await api.get("/report/");
       setClientReport(getClientReport.data);
 
-      toastSuccess("Login efetuado com sucesso");
+      toastSuccess("Login successful");
 
       navigate("/main", { replace: true });
       setLoading(false);
@@ -69,11 +69,12 @@ export const UserProvider = ({ children }: iUserProviderProps): JSX.Element => {
   const registerUser = async (data: iUserRegisterData) => {
     try {
       await api.post("/users/", data);
-      toastSuccess("Cadastro Realizado Com Sucesso");
+      toastSuccess("Registration Completed Successfully");
     } catch (error) {
       if (axios.isAxiosError(error)) {
         toastError(error.response?.data.username[0]);
         toastError(error.response?.data.email[0]);
+        console.log(error.response);
       }
     }
   };
@@ -93,8 +94,13 @@ export const UserProvider = ({ children }: iUserProviderProps): JSX.Element => {
           const getClientsData = await api.get("/clients/");
           setClientsResponseData(getClientsData.data);
 
-          const getClientReport = await api.get("/report/");
+          let getClientReport = await api.get("/report/");
           setClientReport(getClientReport.data);
+
+          setInterval(async () => {
+            let getClientReport = await api.get("/report/");
+            setClientReport(getClientReport.data);
+          }, 10000);
         } catch (error) {
           console.log(error);
         }
